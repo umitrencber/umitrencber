@@ -42,8 +42,12 @@
           <a class="nav-link " href="projects.html">Project</a>
         </li>
         <li class="nav-item active mx-auto">
+          <a class="nav-link" href="blog.html" >Blog</a>
+        </li>
+        <li class="nav-item active mx-auto">
           <a class="nav-link" href="contact.html" >Contact</a>
         </li>
+        
       </ul>
 
 
@@ -71,44 +75,56 @@
         <!-- yuvarlak linkler -->
 
         <div id="circle" class="h5 mr-2 border-dark border
-         text-monospace rounded-circle  circle
+        text-monospace rounded-circle  circle
+       float-left d-flex align-items-center justify-content-center">
+
+         <a id="link" class="text-decoration-none font-weight-bold text-body text-center" href="followMe.html">Follow Me</a>
+       </div>
+
+       <script>
+         document.getElementById("circle").addEventListener("click", function () {
+           window.location.href = document.getElementById("link").href;
+         });
+       </script>
+
+       <div id="circle2" class="h5 mr-2 border-dark border
+       text-monospace rounded-circle circle2
         float-left d-flex align-items-center justify-content-center">
 
-          <a id="link" class="text-decoration-none font-weight-bold text-body text-center" href="followMe.html">Follow Me</a>
-        </div>
+         <a id="link2" class="text-decoration-none font-weight-bold text-body" href="projects.html">Projects</a>
+       </div>
 
-        <script>
-          document.getElementById("circle").addEventListener("click", function () {
-            window.location.href = document.getElementById("link").href;
-          });
-        </script>
+       <script>
+         document.getElementById("circle2").addEventListener("click", function () {
+           window.location.href = document.getElementById("link2").href;
+         });
+       </script>
 
-        <div id="circle2" class="h5 mr-2 border-dark border
-        text-monospace rounded-circle circle2
+       <div id="circle3" class="h5 mr-2 border-dark border
+       text-monospace rounded-circle  circle3
+       float-left d-flex align-items-center justify-content-center">
+
+       <a id="link3" class="text-decoration-none font-weight-bold text-body text-center" href="blog.html">Blog</a>
+       </div>
+
+       <script>
+       document.getElementById("circle3").addEventListener("click", function () {
+         window.location.href = document.getElementById("link3").href;
+       });
+       </script>
+       <div id="circle4" class="h5 mr-2 border-dark border
+        text-monospace rounded-circle circle4
          float-left d-flex align-items-center justify-content-center">
 
-          <a id="link2" class="text-decoration-none font-weight-bold text-body" href="projects.html">Projects</a>
-        </div>
+         <a id="link4" class="text-decoration-none font-weight-bold text-body " href="contact.html">Contact</a>
+       </div>
 
-        <script>
-          document.getElementById("circle2").addEventListener("click", function () {
-            window.location.href = document.getElementById("link2").href;
-          });
-        </script>
+       <script>
+         document.getElementById("circle4").addEventListener("click", function () {
+           window.location.href = document.getElementById("link4").href;
+         });
 
-        <div id="circle3" class="h5 mr-2 border-dark border
-         text-monospace rounded-circle circle3
-          float-left d-flex align-items-center justify-content-center">
-
-          <a id="link3" class="text-decoration-none font-weight-bold text-body " href="contact.html">Contact</a>
-        </div>
-
-        <script>
-          document.getElementById("circle3").addEventListener("click", function () {
-            window.location.href = document.getElementById("link3").href;
-          });
-
-        </script>
+       </script>
       </div>
     </div>
 
