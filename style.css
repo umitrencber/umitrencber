@@ -75,7 +75,7 @@ body{
     background-color: rgb(255,255,255);
 }
 .bg-dark2{
-    background-color: rgb(24,26,32);
+    background-color: rgb(24,26,32) !important;
 }
 .input {
     display: block;
