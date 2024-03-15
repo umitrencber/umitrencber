@@ -74,5 +74,44 @@ body{
 .cardRenk{
     background-color: rgb(255,255,255);
 }
+.bg-dark2{
+    background-color: rgb(24,26,32);
+}
+.input {
+    display: block;
+    width: 350px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 45px;
+    background-color: rgb(24,26,32);
+    color: white;
+    font-family: monospace;
+    
+  }
+  
+  /* Farklı durumlar için stiller */
+  .input:focus {
+    outline: none;
+    border: 2px solid #007bff;
+  }
+  
+  .input:hover {
+    border: 2px solid rgb(179, 182, 193);
+  }
+
+  .blogSitesineGit{
+    border: 2px solid white;
+    width: 220px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #f7f7f7;
+  }
+  .blogSitesineGit:hover{
+    text-decoration: none;
+    color: #007bff;
+    background-color: white;
+  }
 
 

@@ -42,12 +42,11 @@
           <a class="nav-link " href="projects.html">Project</a>
         </li>
         <li class="nav-item active mx-auto">
-          <a class="nav-link" href="blog.html" >Blog</a>
+          <a class="nav-link" href="odev.html" >Ödev</a>
         </li>
         <li class="nav-item active mx-auto">
           <a class="nav-link" href="contact.html" >Contact</a>
         </li>
-        
       </ul>
 
 
@@ -125,6 +124,33 @@
          });
 
        </script>
+       <!-- Bu random renk üreten  burada circle3 sınıfı eklemişim bu önemli değil zaten yuvarlak olsun diye-->
+               <div id="circle5" class="h5 mr-2 border-dark border
+               text-monospace rounded-circle circle3 
+                float-left d-flex align-items-center justify-content-center">
+      
+                <a id="link5" style="text-align: center;" class="text-decoration-none font-weight-bold text-body " href="odev.html">HOCAM ÖDEV BURADA</a>
+              </div>
+      
+              <script>
+                document.getElementById("circle5").addEventListener("click", function () {
+                  window.location.href = document.getElementById("link5").href;
+                });
+      
+                const circle3 = document.getElementById("circle5");
+      
+              function changeColor() {
+                const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                circle3.style.backgroundColor = randomColor;
+              }
+      
+              // Initial color change (optional)
+              changeColor();
+      
+              // Set interval for continuous color change
+              setInterval(changeColor, 1000);
+      
+              </script>
       </div>
     </div>
 
