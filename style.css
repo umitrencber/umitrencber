@@ -71,11 +71,62 @@ body{
 }
 
 /* blog sitesi */
-.cards{
-    width: 100vh;
-    height: 150px;
-    background-color: rgb(255,255,255);
+.card{
+    background-color: #f7f7f7;
+    transition: 0.5s;
 }
+.card:hover{
+    box-shadow: 20px 20px 50px grey;
+    cursor: pointer;
+}
+.cardParagraf{
+    font-size: 14px;
+    font-family: monospace;
+    line-height: 1.1;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    
+}
+/* Konuların katogori başlıkları (ekonomi,blokchain,yapay zeka) */
+.ekonomi{
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #f31f07;
+   
+    
+}
+.ekonomi:hover{
+    color: #a71606;
+ 
+}
+.yapayZeka{
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #08d208;
+   
+    
+}
+.yapayZeka:hover{
+    color: #08a908;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ödev Sayfası */
 .bg-dark2{
     background-color: rgb(24,26,32) !important;
 }
