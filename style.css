@@ -71,7 +71,9 @@ body{
 }
 
 /* blog sitesi */
-.cardRenk{
+.cards{
+    width: 100vh;
+    height: 150px;
     background-color: rgb(255,255,255);
 }
 .bg-dark2{
