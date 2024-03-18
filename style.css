@@ -74,7 +74,7 @@ body{
 .card{
     background-color: #f7f7f7;
     transition: 0.5s;
-    height: 220px;
+    height: 200px;
     width: 100%;
 }
 .card:hover{
