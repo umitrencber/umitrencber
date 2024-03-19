@@ -74,8 +74,9 @@ body{
 .card{
     background-color: #f7f7f7;
     transition: 0.5s;
-    height: 200px;
+    height: 220px;
     width: 100%;
+    
 }
 .card:hover{
     box-shadow: 20px 20px 50px grey;
@@ -89,7 +90,7 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     
 }
@@ -119,12 +120,13 @@ body{
     color: #08a908;
  
 }
+
 @media (max-width: 495px) 
 {
     .card{
         background-color: #f7f7f7;
         transition: 0.5s;
-        height: 200px;
+        height: 210px;
         width: 100%;
     }
     .card:hover{
@@ -132,21 +134,22 @@ body{
         cursor: pointer;
     }
     .cardParagraf{
-        font-size: 10px;
+        font-size: 11px;
         font-family: monospace;
         line-height: 1.1;
         white-space: normal;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         
     } 
     .blogH5font{
-        font-size: 14px;
+        font-size: 13px;
     }
 }
+
 
 /* Ödev Sayfası */
 .bg-dark2{
