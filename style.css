@@ -223,7 +223,22 @@ a:hover{
  } 
  @media (max-width: 495px) {
     .akcakocaP{
-        margin: 0px;
+        font-size: 14px;
+        margin: 40px;
+        line-height: 28px;
+        
     }
+ }
+ .akcakocaH4{
+    font-size: 35px;
+    margin: 0px 60px;
+    
+ }
+ @media (max-width : 495px){
+    .akcakocaH4{
+        font-size: 20px;
+        margin: 0px 40px;
+        
+     }
  }
 
