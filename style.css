@@ -90,12 +90,19 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     
 }
 .blogH5font{
     font-size: 16px;
+}
+a{
+ color: black;  
+}
+a:hover{
+    text-decoration: none;
+    color: black;
 }
 /* Konuların katogori başlıkları (ekonomi,blokchain,yapay zeka) */
 .ekonomi{
@@ -141,7 +148,7 @@ body{
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         
     } 
@@ -192,5 +199,31 @@ body{
     background-color: white;
    
   }
-/* ARa */
+/*umitrencber\blogYazılari\Kişisel Anılarım\akcakocaKampVeBalık.html için style */
+
+.frontImg{
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+    
+}
+.frontImg:hover {
+    -webkit-transform: scale(1.2);
+	transform: scale(1.2);
+  }
+
+ .akcakocaP{
+    font-size: 20px;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+    line-height: 28px;
+    letter-spacing: -0.003px;
+    font-weight: 500;
+    margin: 60px;
+ } 
+ @media (max-width: 495px) {
+    akcakocaP{
+        margin: 0px;
+    }
+ }
 
