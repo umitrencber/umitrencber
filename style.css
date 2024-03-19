@@ -222,7 +222,7 @@ a:hover{
     margin: 60px;
  } 
  @media (max-width: 495px) {
-    akcakocaP{
+    .akcakocaP{
         margin: 0px;
     }
  }
