@@ -221,23 +221,49 @@ a:hover{
     font-weight: 500;
     margin: 60px;
  } 
- @media (max-width: 495px) {
-    .akcakocaP{
-        font-size: 14px;
-        margin: 40px;
-        line-height: 28px;
-        
-    }
- }
  .akcakocaH4{
     font-size: 35px;
     margin: 0px 60px;
     
  }
- @media (max-width : 495px){
+ @media (max-width: 495px) {
+    .akcakocaP{
+        font-size: 14px;
+        margin: 40px;
+        line-height: 28px; 
+    }
     .akcakocaH4{
         font-size: 20px;
         margin: 0px 40px;
+        
+     }
+ }
+ /* Blog yazıları için stabil paragraf,başlık ayarları */
+ .blogP{
+    font-size: 20px;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+    line-height: 28px;
+    letter-spacing: -0.003px;
+    font-weight: 500;
+    margin: 0px 40px;
+
+ }
+ .blogH{
+    font-size: 45px;
+    font-family: monospace;
+    font-weight: 600;
+    
+ }
+ @media (max-width : 700px){
+    .blogP{
+        font-size: 16px;
+        margin: 0px 20px;
+    
+     }
+     .blogH{
+        font-size: 30px;
+        font-family: monospace;
+        font-weight: 600;
         
      }
  }
