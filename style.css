@@ -245,7 +245,7 @@ a:hover{
     line-height: 28px;
     letter-spacing: -0.003px;
     font-weight: 500;
-    margin: 0px 40px;
+    margin: 0px 40px 0px 20px;
 
  }
  .blogH{
@@ -256,8 +256,8 @@ a:hover{
  }
  @media (max-width : 700px){
     .blogP{
-        font-size: 16px;
-        margin: 0px 20px;
+        font-size: 15px;
+        margin: 0px 20px 0px 10px;
     
      }
      .blogH{
@@ -267,5 +267,6 @@ a:hover{
         
      }
  }
+
 
 
