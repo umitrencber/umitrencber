@@ -254,9 +254,20 @@ a:hover{
     font-weight: 600;
     
  }
+ .blogA{
+    color: red;
+ }
+ .blogListA{
+    text-decoration: underline;
+ }
  @media (max-width : 700px){
+    
     .blogP{
         font-size: 16px;
+        font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+        line-height: 28px;
+        letter-spacing: -0.003px;
+        font-weight: 500;
        
     
      }
