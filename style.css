@@ -127,7 +127,14 @@ a:hover{
     color: #08a908;
  
 }
-
+.metaverse{
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #006eff;
+}
+.metaverse:hover{
+    color: #084eaa;
+}
 @media (max-width: 495px) 
 {
     .card{
