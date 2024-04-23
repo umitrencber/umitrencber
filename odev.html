@@ -123,7 +123,56 @@
           </div>    
           
           <div class="row">
+            <h2>Mesaj Gönder</h2>
+            <form action="#" method="get" id="messageForm">
+                <label for="fname">Ad:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+        
+                <label for="lname">Soyad:</label><br>
+                <input type="text" id="lname" name="lname"><br>
+        
+                <label for="message">Mesaj:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+        
+                <input type="submit" value="Gönder">
+            </form>
+            
+            <!-- Gönderilen mesajı URL'de ve paragraflarda gösterme -->
+            <div id="messageDisplay" style="display: none;">
+                <h2>Gönderilen Mesaj:</h2>
+                <p>Ad: <span id="displayFname"></span></p>
+                <p>Soyad: <span id="displayLname"></span></p>
+                <p>Mesaj: <span id="displayMessage"></span></p>
+            </div>
+        
+            <script>
+                // Form gönderildiğinde bilgileri URL'de ve paragraflarda gösterme
+                document.getElementById('messageForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Formun sayfayı yenilemesini önler
+        
+                    // Formdaki değerleri al
+                    var fname = document.getElementById('fname').value;
+                    var lname = document.getElementById('lname').value;
+                    var message = document.getElementById('message').value;
+        
+                    // URL'ye bilgileri ekle
+                    var url = window.location.href + '?fname=' + fname + '&lname=' + lname + '&message=' + message;
+        
+                    // URL'yi ekranda göster
+                    document.getElementById('displayFname').textContent = fname;
+                    document.getElementById('displayLname').textContent = lname;
+                    document.getElementById('displayMessage').textContent = message;
 
+                    // Formu temizle
+                    document.getElementById('messageForm').reset();
+        
+                    // URL'yi konsola da yazdırabilirsiniz
+                    console.log(url);
+        
+                    // Alert ile bilgileri göster
+                    alert('Bilgileriniz başarıyla gönderildi:\n\nAd: ' + fname + '\nSoyad: ' + lname + '\nMesaj: ' + message);
+                });
+            </script>
           </div>
         </div>
       
