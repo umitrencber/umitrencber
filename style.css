@@ -288,4 +288,19 @@ a:hover{
  }
 
 
+/* Dark mode */
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+@media (prefers-color: dark) {
+    body {
+        /* Add your dark mode styles here */
+        .dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        /* ... other dark mode styles for different elements ... */
+    }
+}
 
