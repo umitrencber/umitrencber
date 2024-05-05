@@ -26,6 +26,7 @@
           <img src="../../img/icons8-source-code-30.png" class="mb-1 mt-0 mr-1 ml-4 " alt="" width="30" height="30">
     
           Blog </a>
+          <button id="dark-mode-toggle" class="dark-mode-btn mx-auto">Dark Mode</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -51,6 +52,7 @@
           </ul>
         </div>
       </nav>
+      <script src="../../dark_mode.js"></script>
       <div class="container">
         <div class="row ">
               <h1 class="blogH">Veri Madenciliği Nedir?</h1>
@@ -68,9 +70,9 @@
              <strong>Veri Madenciliği Nedir?</strong><br>
              Veri Madenciliğinin bir kaç beğendiğim tanımı var.Daha yeni Dr.Yalçın Özkan'nın Veri Madenciliği Yöntemleri kitabını okurken 
              gördüğüm tanım şuydu:
-             <i style="background-color: yellow;"> Kurumlarda biriken veri içinden kurum için yararlı olanların bulup ortaya çıkarma işine <u>veri madenciliği</u> adı verilir.</i> <br>
+             <i style="background-color: rgb(175, 166, 5);"> Kurumlarda biriken veri içinden kurum için yararlı olanların bulup ortaya çıkarma işine <u>veri madenciliği</u> adı verilir.</i> <br>
              Diğer tanımları da vereyim. <br>
-             <i style="background-color: rgb(67, 248, 1);"> Çok büyük verilen arasından(big data) faydalı olana ulaşabilme bilgi madenleme işidir.Bu veriler içinde gelecekle 
+             <i style="background-color:rgb(175, 166, 5);;"> Çok büyük verilen arasından(big data) faydalı olana ulaşabilme bilgi madenleme işidir.Bu veriler içinde gelecekle 
             ilgili tahminde bulunmak için bilgisayar programlarından yararlanılan bir şeydir.</i>
             <br> <br>
             Tanımlardan sonra bu işin ne olduğunu açıklamak isterim tabi tanımlarda aslında gayet net.Yine de bende kendimce dersini almakta olduğum dersten anladıklarımı aktarayım.
@@ -79,25 +81,43 @@
             Yeri gelmişken Veri madenciliği,Yapay Zeka,Makine Öğrenmesi ve istatistik çok içi içe bir alan.Birbirlerinin alt dalları ve yandalları.
             <br> 
             Şimdi izninizle <i style="background-color: rgb(0, 203, 248);">Veri/Enformasyon/Bilgi/Bilgelik</i> kavramlarını açıklamak isterim.Derste bizim gördüğümüz ilk temek konulardandı.Bu bir piramit sırasyıla yukarıya doğru ilerliyorç
-          <br><i style="background-color: rgb(0, 248, 145);">Veri :</i> İşlenmemiş ham bilgi parçasıdır. <br>
-             <i style="background-color: rgb(0, 248, 145);">Enformasyon :</i> Verinin işlenmesi,düzenlenmesi ve birbirleriyle ilişkilendirme adımı <br>
-             <i style="background-color: rgb(0, 248, 145);">Bilgi :</i> Enformasyon sonucu işlenen verilerin toplanmış halidir. <br>
-
-             
-              <br style="margin-bottom: 20px;">
-              
-              <br style="margin-bottom: 10px;">
-              
+          <br><i style="background-color: rgb(175, 166, 5);">Veri :</i> İşlenmemiş ham bilgi parçasıdır. <br>
+             <i style="background-color:rgb(175, 166, 5);">Enformasyon :</i> Verinin işlenmesi,düzenlenmesi ve birbirleriyle ilişkilendirme adımı <br>
+             <i style="background-color:rgb(175, 166, 5);">Bilgi :</i> Enformasyon sonucu işlenen verilerin toplanmış halidir. <br>
 
             </p>
             <div class="row mx-auto">
-              <img src="" class="img-fluid col-lg-12 frontImg  mb-5" alt="Responsive image">
+              <img src="https://images.prismic.io/sketchplanations/e97aed8c-e243-4256-9849-f462b1207bec_SP+701+-+Data+information+knowledge+wisdom.png?auto=compress%2Cformat&fit=max&w=3840&q=50" class="img-fluid col-lg-12 frontImg h-75" alt="Responsive image">     
             </div>
             <p class="blogP">
+              Hemen konuya inemden bir Yapay Zeka tanımı yapalım. <br> Yapay Zeka Nedir? <br>
+              <i style="background-color: rgb(175, 166, 5);">Yapay Zeka,makinelerin insan zekasını taklit etmeye çalıştığı zeka türüdür.</i> <br> <br>
+              Tabi biz makineyi eğitirken 4 çeşit yapı var:
+              <ul class="blogP">
+                <li>Denetimli Öğrenme (supervised learning)</li>
+                <li>Denetimsiz Öğrenme (unsupervised learning)</li>
+                <li>Yarı Denetimli</li>
+                <li>Pekiştirmeli Öğrenme</li>
+              </ul>
+              <br>
+            </p>
+            <p class="blogP">
+              Ben size burada en yaygın kullanılan denetimli ve denetimsiz öğrenmeyi anlatmak istiyorum. <br> <br>
+              <i style="background-color: rgb(175, 166, 5);">Denetimli Öğrenme : </i> <br>
+              Şimdi makineyi eğitirken etiketli veri dediğimiz veri setleriyle eğitiyoruz.Nasıl yani derseniz ki derseniz haklısınız.Mesela üçgen resmi var ve karşında üçgen yazıyor.
+              yine aynı şekilde dikdörtgen resmi var ve adı yazıyor.Bu şekilde bir sürü nesne daha üretebilirsiniz.Biz ne yaptık yapay zekaya resmi ve ne olduğunu verdik yani bizim elimizdekilere göre eğittik. <br>
+              Daha sonra herhangi sonradan bir nesne sorduğumuzda biliyorsa eğitim başarıldır.Şimdi biz bunu eğitirken kullandığımız veri seti ve test için ayırdığımız bir veri seti var.(Test and valudation) Eğitim verilerinden sormuyoruz ki test ederken ezberlemiş mi öğrenmiş mi ? test edebilmek için. <br>
+              Eğer ezberlediyse biz buna overfitting(aşırı uyum gösterme,öğrenme) diyoruz.Test verilerini verdiğimizde başarısız olursa da underfitting (yetersiz uyum) diyoruz. <br>
               
+              <div class="row mx-auto">
+                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*WntpWxLAUY-zuwUmwHiErw.png" class="img-fluid col-lg-12   mb-5" alt="Responsive image">
+              </div>
+            </p>
+            <p class="blogP">
+              <i style="background-color: rgb(175, 166, 5);">Denetimsiz Öğrenme : </i> <br>
             </p>
             <div class="row mx-auto">
-              <img src="" class="img-fluid col-lg-12 frontImg  mb-5" alt="Responsive image">
+              <img src="https://miro.medium.com/v2/resize:fit:1400/1*qRoztuLERuqdgNd49SwvOQ.png" class="img-fluid col-lg-12   mb-5" alt="Responsive image">
             </div>
             <p class="blogP" style="margin-bottom: 10px;">
              
@@ -106,7 +126,7 @@
             <p class="blogP">
               <br>
               <ul class="blogP">
-                <li><a target="_blank" class="blogListA" href="https://www.cognition-labs.com/">Cognition Labs Resmi sitesi</a></li>
+                <li><a target="_blank" class="blogListA" href="https://medium.com/machine-learning-t%C3%BCrkiye/ad%C4%B1m-ad%C4%B1m-makine-%C3%B6%C4%9Frenmesi-b%C3%B6l%C3%BCm-4-denetimli-%C3%B6%C4%9Frenme-ve-denetimsiz-%C3%B6%C4%9Frenme-aras%C4%B1ndaki-fark-4aa174983380">Adım Adım Makine Öğrenmesi Bölüm 4: Denetimli Öğrenme ve Denetimsiz Öğrenme Arasındaki Fark</a></li>
                 <li><a target="_blank" class="blogListA" href="https://www.bloomberg.com/news/newsletters/2024-03-12/cognition-ai-s-devin-assistant-can-build-websites-videos-from-a-prompt">Sport-Coders Get Serious With Advanced AI Software Assistant (Bloomberg yazısı)</a></li>
                 <li><a target="_blank" class="blogListA" href="https://www.bloomberg.com/news/articles/2024-03-12/cognition-ai-is-a-peter-thiel-backed-coding-assistant">Gold-Medalist Coders Build an AI That Can Do Their Job for Them (Bloomberg Yazısı)</a></li>
                 <li><a target="_blank" class="blogListA" href="https://www.youtube.com/watch?v=8GtCApnXQto">Oğuz Ergin Youtube Videosu</a></li>
