@@ -33,8 +33,13 @@ body{
     width: 100px;
     height: 100px;
 }
+.circle6{
+    background-color: #9cef00;
+    width: 100px;
+    height: 100px;
+}
 
-.circle:hover,.circle2:hover,.circle3:hover,.circle4:hover,.submit:hover {
+.circle:hover,.circle2:hover,.circle3:hover,.circle4:hover,.circle6:hover,.submit:hover {
     transition: 0.5s;
     cursor: pointer;
     background-color: #f3f3f3;
