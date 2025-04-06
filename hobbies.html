@@ -4,8 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOBİLER SAYFAM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            width: 150px;
+            height: 200px;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+        /* Farklı renkler */
+        .card:nth-child(1) {
+            background-color: #FF5733;
+        }
+        .card:nth-child(2) {
+            background-color: #33C3FF;
+        }
+        .card:nth-child(3) {
+            background-color: #28A745;
+        }
+        .card:nth-child(4) {
+            background-color: #FFC107;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card-container {
+                gap: 10px;
+            }
+            .card {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <H1>MERHABA BU SAYFAYA HOBİLER EKLENECEKTİR.HENÜZ GÜNCELLEME AŞAMASINDA</H1>
+    <h1>Hobilerim</h1>
+    <div class="card-container">
+        <a href="#" class="card">
+            <img src="/img/akcakocaKamp.jpg" alt="">
+            <span>İzcilik</span>
+        </a>
+        <a href="#" class="card">
+            <img src="img/game theory1.png" alt="At Binme">
+            <span>At Binme</span>
+        </a>
+        <a href="#" class="card">
+            <img src="img/akcokacaAnısı1.jpg" alt="Bitki Yetiştirme">
+            <span>Bitki Yetiştirme</span>
+        </a>
+        <a href="#" class="card">
+            <img src="img/economics.webp" alt="Ekonomi">
+            <span>Ekonomi</span>
+        </a>
+    </div>
 </body>
 </html>
