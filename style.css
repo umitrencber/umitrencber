@@ -95,7 +95,7 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    
     -webkit-box-orient: vertical;
     
 }
@@ -160,7 +160,7 @@ a:hover{
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+       
         -webkit-box-orient: vertical;
         
     } 
