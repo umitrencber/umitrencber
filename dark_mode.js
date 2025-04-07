@@ -1,14 +1,17 @@
-function toggleDarkMode() {
-    const body = document.body;
-    const darkModeBtn = document.getElementById('dark-mode-toggle');
+// Check for saved dark mode preference
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-    body.classList.toggle('dark-mode');
-
-    if (body.classList.contains('dark-mode')) {
-        darkModeBtn.textContent = 'Light Mode';
-    } else {
-        darkModeBtn.textContent = 'Dark Mode';
-    }
+// Apply dark mode if saved
+if (isDarkMode) {
+  document.body.classList.add('dark-mode');
+  document.getElementById('dark-mode-toggle').innerText = 'Light Mode';
 }
-const darkModeBtn = document.getElementById('dark-mode-toggle');
-darkModeBtn.addEventListener('click', toggleDarkMode);
+
+// Toggle dark mode on button click
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', isDark); // Save preference
+
+  // Change button text
+  document.getElementById('dark-mode-toggle').innerText = isDark ? 'Light Mode' : 'Dark Mode';
+});

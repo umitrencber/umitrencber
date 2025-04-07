@@ -294,18 +294,21 @@ a:hover{
 
 
 /* Dark mode */
+/* Dark mode styles */
 .dark-mode {
-    background-color: #222;
-    color: #fff;
-}
-@media (prefers-color: dark) {
-    body {
-        /* Add your dark mode styles here */
-        .dark-mode {
-            background-color: #222;
-            color: #fff;
-        }
-        /* ... other dark mode styles for different elements ... */
-    }
-}
-
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark-mode a {
+    color: #bb86fc;
+  }
+  
+  .dark-mode .navbar {
+    background-color: #1f1f1f;
+  }
+  .dark-mode .card {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: 1px solid #333;
+  }
