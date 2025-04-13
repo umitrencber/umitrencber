@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nane Yetiştirme Serüvenim</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- animate.css kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- tab-icon -->
+    <link rel="icon" href="../../img/tab-icon.png">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        body {
+            padding-top: 60px;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s ease;
+        }
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .plant-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .plant-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .plant-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e9ecef;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            border: 4px solid #28a745;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::after {
+            right: -12px;
+        }
+        .right::after {
+            left: -12px;
+        }
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        .timeline-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .lightbox-close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        body.dark-mode .plant-title {
+            color: #ffffff;
+        }
+        body.dark-mode .plant-subtitle {
+            color: #b0b0b0;
+        }
+        body.dark-mode .timeline-content {
+            background-color: #2d2d2d;
+            border: 1px solid #3d3d3d;
+        }
+        body.dark-mode .timeline-title {
+            color: #ffffff;
+        }
+        body.dark-mode .timeline-description {
+            color: #b0b0b0;
+        }
+        body.dark-mode .timeline::after {
+            background-color: #3d3d3d;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 31px;
+            }
+            .right {
+                left: 0;
+            }
+            .left::after, .right::after {
+                left: 15px;
+            }
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-image {
+                height: 150px;
+            }
+            .plant-title {
+                font-size: 2rem;
+            }
+            .plant-subtitle {
+                font-size: 1rem;
+            }
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+            .timeline-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            .gallery-image {
+                height: 200px;
+            }
+            .timeline-item {
+                padding-left: 50px;
+            }
+            .timeline-item::after {
+                width: 20px;
+                height: 20px;
+                left: 25px;
+            }
+            .plant-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar">
+        <a class="navbar-brand mt-2" style="font-size: 20px; font-family: monospace;" href="../../index.html">
+            <img src="../../img/icons8-source-code-30.png" class="mb-1 mt-0 mr-1 ml-4" alt="" width="30" height="30">
+            Blog
+        </a>
+        <button id="dark-mode-toggle" class="dark-mode-btn mx-auto">Dark Mode</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+            <ul class="navbar-nav justify-content-end ul mr-3">
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../followMe.html">Takip Et<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../projects.html">Projelerim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../blog.html">Blog</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../contact.html">İletişim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../hobbies.html">Hobilerim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <!-- Lightbox container -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <img class="lightbox-image" id="lightbox-image" src="" alt="">
+                <button class="lightbox-close" id="lightbox-close">&times;</button>
+            </div>
+        </div>
+
+        <div class="plant-header">
+            <h1 class="plant-title">Nane Yetiştirme Serüvenim</h1>
+            <p class="plant-subtitle">
+                Balkonumda başlayan nane yetiştirme maceramın tüm detayları, bakım süreçleri ve hasat deneyimlerim
+            </p>
+        </div>
+
+        <div class="timeline">
+            <!-- Ekim Süreci -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">13 Mart 2025</div>
+                    <h3 class="timeline-title">Ekim Günü</h3>
+                    <p class="timeline-description">
+                        İlk nane tohumlarımı ektim. Toprak hazırlığı ve ekim sürecini detaylıca anlatacağım.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../../img/bitkiler/nane1.jpg" alt="Nane Ekimi 1" class="gallery-image">
+                        <img src="../../img/bitkiler/nane2.jpg" alt="Nane Ekimi 2" class="gallery-image">
+                        <img src="../../img/bitkiler/nane3.jpg" alt="Nane Ekimi 3" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bakım Süreci -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">20 Mart 2025</div>
+                    <h3 class="timeline-title">İlk Filizler</h3>
+                    <p class="timeline-description">
+                        Tohumlar çimlenmeye başladı. Bakım sürecindeki önemli noktaları paylaşacağım.
+                    </p>
+                    <div class="image-gallery">
+                        <img src="../../img/bitkiler/nane4.jpg" alt="Nane Filizleri 1" class="gallery-image">
+                        <img src="../../img/bitkiler/nane5.jpg" alt="Nane Filizleri 2" class="gallery-image">
+                        <img src="../../img/bitkiler/nane6.jpg" alt="Nane Filizleri 3" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daha fazla zaman dilimi eklenebilir -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="../../dark_mode.js"></script>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
