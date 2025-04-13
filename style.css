@@ -314,3 +314,23 @@ a:hover{
     color: #ffffff;
     border: 1px solid #333;
   }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-toggler {
+    background-color: #ffffff;
+}
