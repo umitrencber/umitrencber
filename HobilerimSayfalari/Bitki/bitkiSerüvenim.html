@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitki Serüvenim</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- animate.css kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- tab-icon -->
+    <link rel="icon" href="../../img/tab-icon.png">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            padding-top: 60px;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s ease;
+        }
+        .plant-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .plant-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .plant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .plant-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .plant-info {
+            padding: 20px;
+            position: relative;
+        }
+        .plant-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .plant-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .plant-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+        .page-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .plant-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        body.dark-mode .plant-card {
+            background-color: #2d2d2d;
+            border: 1px solid #3d3d3d;
+        }
+        body.dark-mode .plant-title {
+            color: #ffffff;
+        }
+        body.dark-mode .plant-description {
+            color: #b0b0b0;
+        }
+        body.dark-mode .plant-date {
+            color: #888;
+        }
+        body.dark-mode .page-title {
+            color: #ffffff;
+        }
+        body.dark-mode .page-description {
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar">
+        <a class="navbar-brand mt-2" style="font-size: 20px; font-family: monospace;" href="../../index.html">
+            <img src="../../img/icons8-source-code-30.png" class="mb-1 mt-0 mr-1 ml-4" alt="" width="30" height="30">
+            Blog
+        </a>
+        <button id="dark-mode-toggle" class="dark-mode-btn mx-auto">Dark Mode</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+            <ul class="navbar-nav justify-content-end ul mr-3">
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../followMe.html">Takip Et<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../projects.html">Projelerim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../blog.html">Blog</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../contact.html">İletişim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../hobbies.html">Hobilerim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="plant-container">
+        <h1 class="page-title">Bitki Serüvenim</h1>
+        <p class="page-description">
+            Doğayla iç içe geçen yolculuğumda yetiştirdiğim bitkilerin hikayelerini burada paylaşıyorum. 
+            Her bir bitkinin büyüme sürecini, bakım ipuçlarını ve benimle olan anılarını keşfedin.
+        </p>
+
+        <div class="row">
+            <!-- Bitki Kartları -->
+            <div class="col-md-6 col-lg-4">
+                <div class="plant-card" onclick="window.location.href='naneBitki.html'">
+                    <img src="../../img/bitkiler/nane1.jpg" alt="Limon Ağacı" class="plant-image">
+                    <img src="../../img/bitkiler/abby-boggier-boadZKqd1YM-unsplash-nane.jpg" alt="Nane ikon" class="plant-icon">
+                    <div class="plant-info">
+                        <h3 class="plant-title">Nane</h3>
+                        <p class="plant-description">Evimin balkonunda yetiştirdiğim ilk meyve ağacı. Her yıl bana lezzetli limonlar veriyor.</p>
+                        <p class="plant-date">13 Mart 2025</p>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            
+
+            <!-- Daha fazla bitki kartı eklenebilir -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="../../dark_mode.js"></script>
+</body>
+</html>
