@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinekli Yaylası Kampı</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- animate.css kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- tab-icon -->
+    <link rel="icon" href="../../img/tab-icon.png">
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            padding-top: 60px;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s ease;
+        }
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .image-row img {
+            width: 23%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 15px;
+        }
+        .image-row img:hover {
+            transform: scale(1.05);
+        }
+        .gallery {
+            margin-top: 50px;
+        }
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            cursor: pointer;
+        }
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar">
+        <a class="navbar-brand mt-2" style="font-size: 20px; font-family: monospace;" href="../../index.html">
+            <img src="../../img/icons8-source-code-30.png" class="mb-1 mt-0 mr-1 ml-4" alt="" width="30" height="30">
+            Blog
+        </a>
+        <button id="dark-mode-toggle" class="dark-mode-btn mx-auto">Dark Mode</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+            <ul class="navbar-nav justify-content-end ul mr-3">
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../followMe.html">Takip Et<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../projects.html">Projelerim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../blog.html">Blog</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../contact.html">İletişim</a>
+                </li>
+                <li class="nav-item active mx-auto">
+                    <a class="nav-link" href="../../hobbies.html">Hobilerim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-section">
+        <h1 class="text-center mb-4">Sinekli Yaylası Kampı</h1>
+        
+        <p>
+            Sinekli Yaylası'nda geçirdiğimiz kamp deneyimi gerçekten unutulmazdı. Doğanın kucağında, 
+            temiz havada ve muhteşem manzaralarla dolu bir hafta sonu geçirdik. Sabahın erken saatlerinde 
+            uyanıp güneşin doğuşunu izlemek, gün boyu doğa yürüyüşleri yapmak ve akşamları ateş başında 
+            sohbet etmek bize çok iyi geldi.
+        </p>
+
+        <div class="image-row">
+            <img src="../../img/sinekli_yaylası/umidoFrig.jpg" alt="Kamp 1" class="animate__animated animate__fadeIn">
+            <img src="../../img/sinekli_yaylası/karkalipleri.jpg" alt="Kamp 2" class="animate__animated animate__fadeIn">
+            <img src="../../img/sinekli_yaylası/IMG_20250322_091747.jpg" alt="Kamp 3" class="animate__animated animate__fadeIn">
+            <img src="../../img/sinekli_yaylası/IMG_20250322_091842.jpg" alt="Kamp 4" class="animate__animated animate__fadeIn">
+        </div>
+
+        <p>
+            Kamp süresince birçok aktivite yaptık. Doğa yürüyüşleri, pusula kullanma eğitimi, 
+            çadır kurma yarışması ve en önemlisi takım çalışması becerilerimizi geliştirdik. 
+            Her gece ateş başında şarkılar söyledik, hikayeler anlattık ve yıldızları izledik.
+        </p>
+
+        <div class="gallery">
+            <h2 class="gallery-title">Kamp Anıları</h2>
+            <div class="image-row">
+                <img src="../../img/sinekli_yaylası/hosafYorgunluk.jpg" alt="Hoşaf ve Dinlenme">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091724.jpg" alt="Kamp Anısı 11">
+                <img src="../../img/sinekli_yaylası/frigggggg.jpg" alt="Frig Vadisi 5">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091757_1.jpg" alt="Kamp Anısı 22">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091842.jpg" alt="Kamp Anısı 23">
+                <img src="../../img/sinekli_yaylası/IMG_0847.jpg" alt="Kamp Manzarası">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091747_1.jpg" alt="Kamp Anısı 18">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091726.jpg" alt="Kamp Anısı 13">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091727.jpg" alt="Kamp Anısı 14">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091741.jpg" alt="Kamp Anısı 15">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091742_1.jpg" alt="Kamp Anısı 16">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091747.jpg" alt="Kamp Anısı 17">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091750.jpg" alt="Kamp Anısı 19">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091755.jpg" alt="Kamp Anısı 20">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091757.jpg" alt="Kamp Anısı 21">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091856.jpg" alt="Kamp Anısı 24">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_092150.jpg" alt="Kamp Anısı 25">
+                <img src="../../img/sinekli_yaylası/cadirlarRuzgarDuvari.jpg" alt="Çadırlar ve Rüzgar Duvarı">
+                <img src="../../img/sinekli_yaylası/frig1.jpg" alt="Frig Vadisi 1">
+                <img src="../../img/sinekli_yaylası/friggg.jpg" alt="Frig Vadisi 2">
+                <img src="../../img/sinekli_yaylası/friggggg.jpg" alt="Frig Vadisi 4">
+                <img src="../../img/sinekli_yaylası/friggbakııı.jpg" alt="Frig Vadisi Manzarası">
+                <img src="../../img/sinekli_yaylası/frigg56567.jpg" alt="Frig Vadisi Yürüyüşü">
+                <img src="../../img/sinekli_yaylası/hosaf18mart.jpg" alt="Hoşaf Hazırlığı">
+                <img src="../../img/sinekli_yaylası/hosafff.jpg" alt="Hoşaf Zamanı">
+                <img src="../../img/sinekli_yaylası/karkalipleri.jpg" alt="Karkalıpleri">
+                <img src="../../img/sinekli_yaylası/sinekli kek.png" alt="Sinekli Kek">
+                <img src="../../img/sinekli_yaylası/testere.jpg" alt="Testere Çalışması">
+                <img src="../../img/sinekli_yaylası/testere2.jpg" alt="Testere Çalışması 2">
+                <img src="../../img/sinekli_yaylası/yeterFrgigg.jpg" alt="Frig Vadisi Son">
+                <img src="../../img/sinekli_yaylası/IMG-20250322-WA0009.jpg" alt="Kamp Anısı 1">
+                <img src="../../img/sinekli_yaylası/IMG-20250322-WA0010.jpg" alt="Kamp Anısı 2">
+                <img src="../../img/sinekli_yaylası/IMG-20250322-WA0011.jpg" alt="Kamp Anısı 3">
+                <img src="../../img/sinekli_yaylası/IMG-20250322-WA0012.jpg" alt="Kamp Anısı 4">
+                <img src="../../img/sinekli_yaylası/IMG-20250322-WA0013.jpg" alt="Kamp Anısı 5">
+                <img src="../../img/sinekli_yaylası/IMG-20250323-WA0001.jpg" alt="Kamp Anısı 6">
+                <img src="../../img/sinekli_yaylası/IMG_0848.jpg" alt="Kamp Anısı 7">
+                <img src="../../img/sinekli_yaylası/IMG_0849.jpg" alt="Kamp Anısı 8">
+                <img src="../../img/sinekli_yaylası/IMG_0850.jpg" alt="Kamp Anısı 9">
+                <img src="../../img/sinekli_yaylası/IMG_0851.jpg" alt="Kamp Anısı 10">
+                <img src="../../img/sinekli_yaylası/IMG_20250322_091725.jpg" alt="Kamp Anısı 12">
+                <img src="../../img/sinekli_yaylası/umidoFrig.jpg" alt="Umit ve Doğa Yürüyüşü">
+                <img src="../../img/sinekli_yaylası/benSinek.jpg" alt="Sinekli Yaylası'nda">
+                <img src="../../img/sinekli_yaylası/frig6.jpg" alt="Frig Vadisi">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox HTML -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Büyük görüntü">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="../../dark_mode.js"></script>
+    <script>
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const closeBtn = document.querySelector('.close-lightbox');
+            
+            // Tüm resimlere tıklama olayı ekle
+            document.querySelectorAll('.image-row img, .gallery-grid .gallery-item img').forEach(img => {
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src;
+                    lightbox.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Lightbox'ı kapat
+            closeBtn.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Lightbox dışına tıklandığında kapat
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // ESC tuşu ile kapat
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
